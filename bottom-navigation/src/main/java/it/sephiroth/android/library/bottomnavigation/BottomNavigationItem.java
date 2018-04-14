@@ -13,6 +13,7 @@ public class BottomNavigationItem {
     private String title;
     private int color;
     private boolean enabled;
+    private boolean visible = true;
 
     public BottomNavigationItem(final int id, final int iconResource, final String title) {
         this.id = id;
@@ -62,5 +63,13 @@ public class BottomNavigationItem {
             + ", color=" + String.format("%x", color)
             + ", enabled=" + enabled
             + '}';
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
     }
 }

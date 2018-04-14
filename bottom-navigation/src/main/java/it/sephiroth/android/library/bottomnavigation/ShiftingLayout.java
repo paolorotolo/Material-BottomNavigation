@@ -153,6 +153,17 @@ public class ShiftingLayout extends ViewGroup implements ItemsLayoutContainer {
     }
 
     @Override
+    public void setItemVisible(int index, boolean visible) {
+        log(TAG, INFO, "setItemVisible(%d, %b)", index, visible);
+        final BottomNavigationItemViewAbstract child = (BottomNavigationItemViewAbstract) getChildAt(index);
+        if (null != child) {
+            child.setEnabled(visible);
+            child.postInvalidate();
+            requestLayout();
+        }
+    }
+
+    @Override
     @Keep
     @SuppressWarnings ("unused")
     public int getSelectedIndex() {

@@ -113,6 +113,17 @@ public class TabletLayout extends ViewGroup implements ItemsLayoutContainer {
     }
 
     @Override
+    public void setItemVisible(int index, boolean visible) {
+        log(TAG, INFO, "setItemVisible(%d, %b)", index, visible);
+        final BottomNavigationItemViewAbstract child = (BottomNavigationItemViewAbstract) getChildAt(index);
+        if (null != child) {
+            child.setEnabled(visible);
+            child.postInvalidate();
+            requestLayout();
+        }
+    }
+
+    @Override
     public int getSelectedIndex() {
         return selectedIndex;
     }

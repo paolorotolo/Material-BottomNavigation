@@ -415,6 +415,17 @@ public class BottomNavigation extends FrameLayout implements OnItemClickListener
         }
     }
 
+    public void setMenuItemVisible(final int index, final boolean visible) {
+        log(TAG, INFO, "setMenuItemVisible(%d, %b)", index, visible);
+        if (null != menu) {
+            menu.getItemAt(index).setVisible(visible);
+            if (null != itemsContainer) {
+                itemsContainer.setItemVisible(index, visible);
+            }
+        }
+    }
+
+
     public boolean getMenuItemEnabled(final int index) {
         if (null != menu) {
             return menu.getItemAt(index).isEnabled();

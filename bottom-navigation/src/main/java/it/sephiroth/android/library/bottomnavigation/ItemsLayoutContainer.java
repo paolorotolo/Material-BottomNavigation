@@ -32,4 +32,6 @@ public interface ItemsLayoutContainer {
     void requestLayout();
 
     void setItemEnabled(int index, boolean enabled);
+
+    void setItemVisible(int index, boolean visible);
 }

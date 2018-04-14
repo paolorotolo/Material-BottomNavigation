@@ -39,6 +39,11 @@ abstract class BottomNavigationItemViewAbstract extends View {
         this.item = item;
         this.setId(item.getId());
         this.setEnabled(item.isEnabled());
+
+        if (!item.isVisible()) {
+            this.setVisibility(GONE);
+        }
+
         // this.setBackground(drawable);
         invalidateBadge();
     }
